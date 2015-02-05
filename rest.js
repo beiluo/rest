@@ -34,23 +34,25 @@ function Resource(appId, appKey, baseurl) {
         'delete': {method: 'DELETE',params: ["_id", "_relation"]}, //_relationid 后续支持
         'login': {method: "POST",params: ["username", "passwordd"]},
         'logout': {method: "POST",params: ["token"]},
-        'count': {method: "GET",params: ["_id", "_relation"]},
+        'count': {method: "GET",params: ["_id", "_relation","filter"]},
         'exists': {method: "GET",params: ["_id"]},
         'findOne': {method: 'GET',params: ["filter"]},
         'verify': {method: "POST",params: ["email", "language", "username"],alias: "verifyEmail"},
         'reset': {method: "POST",params: ["email", "language", "username"],alias: "resetRequest"}
     };
 }
-Resource.prototype.upload = function (isFilter, filepath, updateid, callback) {
-    if (typeof updateid == "function") {
-        callback = updateid;
-        updateid = undefined;
+Resource.prototype.upload = function (isFilter, filepath, params, callback) {
+    if (typeof params == "function") {
+        callback = params;
+        params = undefined;
     }
-    var fileUrl = this.baseurl + "/file" + ( updateid ? ("/" + updateid) : "");
+    var url=params["_id"]&&params["_relation"]?("/"+this.modelName+"/"+params["_id"]+"/"+params["_relation"]):"/file";
+    var isPut=(!params["_relation"])&&params["_id"];
+    var fileUrl = this.baseurl + "/file" + ( isPut ? ("/" + params["_id"]) : "");
     var filename = filepath.substr(filepath.lastIndexOf("/") + 1, filepath.length);
     api.ajax({
         url: fileUrl,
-        method: updateid ? "PUT" : "POST",
+        method: isPut ? "PUT" : "POST",
         headers: {
             "X-APICloud-AppId": this.appId,
             "X-APICloud-AppKey": this.appCode
@@ -81,6 +83,7 @@ Resource.prototype.upload = function (isFilter, filepath, updateid, callback) {
 }
 
 Resource.prototype.Factory = function (modelName) {
+    this.modelName=modelName;
     var self = this;
     var route = new Route(modelName, self.baseurl);
     var actions = copy(this.defaultactions);
@@ -122,15 +125,14 @@ Resource.prototype.Factory = function (modelName) {
                 Object.keys(data).forEach(function (key) {
                     var item = data[key];
                     if (item && item.isFile) {
-                        var updateid, isFilter = true;
-                        if (modelName == "file") {
-                            updateid = params["_id"];
+                        var isFilter = true;
+                        if (modelName == "file"||item.isFileClass) {
                             isFilter = false;
                         }
                         fileCount++;
-                        self.upload(isFilter, item.path, updateid, function (err, returnData) {
+                        self.upload(isFilter, item.path, params, function (err, returnData) {
                             if (err) {
-                                return err;
+                                return callback(null, err);
                             } else {
                                 if (modelName == "file")
                                     return callback(returnData, null);
