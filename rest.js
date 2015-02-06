@@ -41,14 +41,14 @@ function Resource(appId, appKey, baseurl) {
         'reset': {method: "POST",params: ["email", "language", "username"],alias: "resetRequest"}
     };
 }
-Resource.prototype.upload = function (isFilter, filepath, params, callback) {
+Resource.prototype.upload = function (modelName,isFilter, filepath, params, callback) {
     if (typeof params == "function") {
         callback = params;
-        params = undefined;
+        params = {};
     }
-    var url=params["_id"]&&params["_relation"]?("/"+this.modelName+"/"+params["_id"]+"/"+params["_relation"]):"/file";
+    var url=params["_id"]&&params["_relation"]?("/"+modelName+"/"+params["_id"]+"/"+params["_relation"]):"/file";
     var isPut=(!params["_relation"])&&params["_id"];
-    var fileUrl = this.baseurl + "/file" + ( isPut ? ("/" + params["_id"]) : "");
+    var fileUrl = this.baseurl + url + ( isPut ? ("/" + params["_id"]) : "");
     var filename = filepath.substr(filepath.lastIndexOf("/") + 1, filepath.length);
     api.ajax({
         url: fileUrl,
@@ -83,7 +83,6 @@ Resource.prototype.upload = function (isFilter, filepath, params, callback) {
 }
 
 Resource.prototype.Factory = function (modelName) {
-    this.modelName=modelName;
     var self = this;
     var route = new Route(modelName, self.baseurl);
     var actions = copy(this.defaultactions);
@@ -130,11 +129,11 @@ Resource.prototype.Factory = function (modelName) {
                             isFilter = false;
                         }
                         fileCount++;
-                        self.upload(isFilter, item.path, params, function (err, returnData) {
+                        self.upload(modelName,isFilter, item.path, params, function (err, returnData) {
                             if (err) {
                                 return callback(null, err);
                             } else {
-                                if (modelName == "file")
+                                if (!isFilter)
                                     return callback(returnData, null);
                                 data[key] = returnData;
                                 fileCount--;
