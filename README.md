@@ -110,3 +110,16 @@ User.delete({
   console.log("aa all delete:"+JSON.stringify(ret));
 });
 ```
+#File表 作为Relation的表的上传操作
+
+需要增加isFileClass:true的选项
+
+```js
+//上传文件到file表
+var RelationFile = client.Factory("relationFile");
+api.getPicture({},function(ret,err){
+	RelationFile.save({"_id":"{{id}}","_relation":"{{relationName}}"},{file:{isFileClass:true,isFile:true,path:ret.data}},function(data,err){
+		alert("file:\t"+JSON.stringify(data));
+		alert("file:\t"+JSON.stringify(err));
+	})
+})
