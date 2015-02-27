@@ -38,7 +38,7 @@ function Resource(appId, appKey, baseurl) {
         'exists': {method: "GET",params: ["_id"]},
         'findOne': {method: 'GET',params: ["filter"]},
         'verify': {method: "POST",params: ["email", "language", "username"],alias: "verifyEmail"},
-        'reset': {method: "POST",params: ["email", "language", "username"],alias: "resetRequest"}
+        'reset': {method: "POST",params: ["id","email", "language", "username"],alias: "resetRequest"}
     };
 }
 Resource.prototype.upload = function (modelName,isFilter, filepath, params, callback) {
@@ -226,4 +226,4 @@ Route.prototype = {
         url = url.replace(/\/+/g, '/');
         config.url = this.baseurl + url;
     }
-};	
+};

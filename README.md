@@ -1,11 +1,16 @@
 # rest
-简化操作数据云的rest框架
+基于api.ajax,简化操作数据云的rest框架.
 
 # Example
 
 ```js
 var client = new Resource("appId", "appKey","请求地址，可省略");
 ```
+####参数介绍
+
+_id：对应数据的id
+_relation：对应Relation字段的名称
+
 ```js
 //多文件上传,一个表有多个file字段
 var bb = client.Factory("bb");
@@ -17,7 +22,7 @@ api.getPicture({},function(ret,err){
 			alert(JSON.stringify(data));
 		})
   });
-	
+
 })
 ```
 ```js
