@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="../css/carousel-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/actDetail.css" />
+</head>
+<body>
+    <div id="main">
+    	<script id="act-template" type="text/x-dot-template">
+			<div id="banner">
+	          <img src="{{=it.img.url}}" />
+	          <label id="activeTitle">{{=it.title}}</label>
+	          <a class="fav" id="activeId" tapmode=""  act-id="{{=it.id}}">收藏</a>
+	        </div>
+	        <ul id="info" class="shadow">
+	          <li class="date">{{=it.actDate}}</li>
+	          <li class="address">{{=it.address}}</li>
+	        </ul>
+            <div id="picture" class="m-carousel m-center m-fade-out">
+	            <div class="m-carousel-inner">
+	            	{{ for(var i = 0, imgList = it.pics.split(','), len = imgList.length; i < len; i++) { }}
+	            		<div class="m-item">
+            				<img src="{{=imgList[i]}}">
+	            		</div>
+	            	{{ } }}
+	            </div>
+	        </div>
+
+	        <h2>【活动介绍】</h2>
+	        <p id="actIntro">
+	          {{=it.intro}}
+	        </p>
+		</script>
+		<div id="act-detail"></div>
+    
+    </div>
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script src="../script/zepto.js"></script>
+<script src="../script/carousel.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/actDetail-con.js"></script>
+</html>

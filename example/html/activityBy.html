@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/activity.css" />
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="main">
+            <div id='slide' class='swipe'>
+                <div class='swipe-wrap'>
+                    <div>
+                        <img src="../image/test/p1.jpg" />
+                        <label>
+                            <div class="blur"></div>山西1日公布4名厅官被立案侦查</label>
+                    </div>
+                    <div>
+                        <img src="../image/test/p2.jpg" />
+                        <label>
+                            <div class="blur"></div>日本前首相:安倍外交孤立日本</label>
+                    </div>
+                    <div>
+                        <img src="../image/test/p3.jpg" />
+                        <label>
+                            <div class="blur"></div>空气最差城市前十京津冀占九个</label>
+                    </div>
+                    <div>
+                        <img src="../image/test/p4.jpg" />
+                        <label>
+                            <div class="blur"></div>央企负责人平均年薪超65万元</label>
+                    </div>
+                    <div>
+                        <img src="../image/test/p5.png" />
+                        <label>
+                            <div class="blur"></div>英超锋霸进球切尔西3-1开门红</label>
+                    </div>
+                </div>
+                <ul id="pointer">
+                    <li>
+                        <a class="active"></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                </ul>
+            </div>
+            <div id="activity">
+                <script id="act-template" type="text/x-dot-template">
+                    {{ for(var i=0; i<it.length; i++) { }}
+                    <div class="item">
+                      <a tapmode="" onclick="openActDetail();">
+                        <div class="pic">
+                          <img src="{{=it[i].poster.url}}" />
+                        </div>
+                        <h2>{{=it[i].title}}</h2>
+                        <p>
+                          {{=it[i].summary}}
+                        </p>
+                      </a>
+                    </div>
+                {{ } }}
+                </script>
+                <div id="act-content"></div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script src='../script/swipe.js'></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/activityby.js"></script>
+
+</html>

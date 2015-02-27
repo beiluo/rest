@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/restaurant.css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+        	
+        	<script id="res-template" type="text/x-dot-template">
+				<div id="banner"  style="background-image:url({{=it.img.url}})">
+	                <a tapmode="" onclick="openAlbum('{{=it.pic}}');">点击查看相册</a>
+	            </div>
+	            <div id="content">
+	            	<div id="mer-wrap" class="shadow">
+	            		<div id="merchant" class="clearfix">
+	            			<img src="{{=it.img.url}}" />
+	            			<h3>{{=it.name}}</h3>
+	            			<label>
+		            			{{=it.city.name}} <span>{{=it.type.name}}</span>
+		            			<!--<em>130km</em>-->
+	            			</label>
+	            		</div>
+	            		<ul>
+	            			<li class="add"><a>{{=it.address}}</a></li>
+	            			<li class="tel"><a tapmodel="" onclick="call(this);" rel="{{=it.tel.replace('-','')}}">{{=it.tel}}</a></li>
+	            		</ul>
+	            	</div>
+	            	<h3 id="info"></h3>
+	            	<ul class="info shadow">
+	            		<li class="time">营业时间：<em>{{=it.openingHours}}</em></li>
+	            	</ul>
+	            </div>
+			</script>
+			<div id="res-content"></div>
+            
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/hammer.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/restaurant-con.js"></script>
+</html>

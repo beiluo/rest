@@ -1,0 +1,123 @@
+#main h2{
+    height: 30px; font-size: 0;
+    background-color: #f2f2f2;
+    background-position: 10px 60%;
+    background-repeat: no-repeat;
+    -webkit-background-size: 142px 15px;
+    background-size: 142px 15px;
+}
+#main ul{
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 4px #dddcdc;
+    box-shadow: 0px 2px 4px #dddcdc;
+    margin-bottom: 6px;
+}
+#main ul li{
+    float: left; width: 25%; border-right: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9; text-align: center; 
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#main ul li a{
+    display: block; padding: 55px 0 10px;
+    background-position: center 10px;
+    background-repeat: no-repeat;
+    -webkit-background-size: 35px;
+    background-size: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#main ul li a.active{
+	background-color: #f2f2f2 !important;
+}
+#main ul li:nth-child(4n){
+    border-right: 0;
+}
+#main h2.fun{
+    background-image: url(../image/fun-title.png);
+}
+
+#main ul.fun li:nth-child(1) a{
+    background-image: url(../image/restaurant.png);
+}
+#main ul.fun li:nth-child(2) a{
+    background-image: url(../image/farmhouse.png);
+}
+#main ul.fun li:nth-child(3) a{
+    background-image: url(../image/pub.png);
+}
+#main ul.fun li:nth-child(4) a{
+    background-image: url(../image/cinema.png);
+}
+#main ul.fun li:nth-child(5) a{
+    background-image: url(../image/ktv.png);
+}
+#main ul.fun li:nth-child(6) a{
+    background-image: url(../image/beauty.png);
+}
+#main ul.fun li:nth-child(7) a{
+    background-image: url(../image/pedicure.png);
+}
+#main ul.fun li:nth-child(8) a{
+    background-image: url(../image/teahouse.png);
+}
+
+#main h2.life{
+    background-image: url(../image/life-title.png);
+}
+
+#main ul.life li:nth-child(1) a{
+    background-image: url(../image/shop.png);
+}
+#main ul.life li:nth-child(2) a{
+    background-image: url(../image/hospital.png);
+}
+#main ul.life li:nth-child(3) a{
+    background-image: url(../image/driving.png);
+}
+#main ul.life li:nth-child(4) a{
+    background-image: url(../image/studio.png);
+}
+#main ul.life li:nth-child(5) a{
+    background-image: url(../image/training.png);
+}
+#main ul.life li:nth-child(6) a{
+    background-image: url(../image/express.png);
+}
+#main ul.life li:nth-child(7) a{
+    background-image: url(../image/flower.png);
+}
+#main ul.life li:nth-child(8) a{
+    background-image: url(../image/car.png);
+}
+
+#main h2.housekeeping{
+    background-image: url(../image/housekeeping.png);
+}
+
+#main ul.housekeeping li:nth-child(1) a{
+    background-image: url(../image/move.png);
+}
+#main ul.housekeeping li:nth-child(2) a{
+    background-image: url(../image/maintain.png);
+}
+#main ul.housekeeping li:nth-child(3) a{
+    background-image: url(../image/pipe.png);
+}
+#main ul.housekeeping li:nth-child(4) a{
+    background-image: url(../image/unlocking.png);
+}
+#main ul.housekeeping li:nth-child(5) a{
+    background-image: url(../image/worker.png);
+}
+#main ul.housekeeping li:nth-child(6) a{
+    background-size:25px;
+    background-image: url(../image/wash.png);
+}
+#main ul.housekeeping li:nth-child(7) a{
+    background-image: url(../image/computer.png);
+}
+#main ul.housekeeping li:nth-child(8) a{
+    background-image: url(../image/house.png);
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/tel.css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+            <h1 class="alarm"></h1>
+            <ul>
+                <li><a tapmode="" onclick="call(this)">匪警<em>110</em></a></li>
+                <li><a tapmode="" onclick="call(this)">火警<em>119</em></a></li>
+                <li><a tapmode="" onclick="call(this)">交通事故报警台<em>122</em></a></li>
+                <li><a tapmode="" onclick="call(this)">急救中心<em>120</em></a></li>
+                <li><a tapmode="" onclick="call(this)">森林火警<em>95119</em></a></li>
+                <li><a tapmode="" onclick="call(this)">水上求救<em>12395</em></a></li>
+            </ul>
+            <h1 class="report"></h1>
+            <ul>
+                <li><a tapmode="" onclick="call(this)">市长热线<em>12345</em></a></li>
+                <li><a tapmode="" onclick="call(this)">消费者投诉<em>12315</em></a></li>
+                <li><a tapmode="" onclick="call(this)">市场价格举报<em>12358</em></a></li>
+                <li><a tapmode="" onclick="call(this)">产品质量技术举报<em>12365</em></a></li>
+                <li><a tapmode="" onclick="call(this)">旅游服务投诉<em>2023856</em></a></li>
+                <li><a tapmode="" onclick="call(this)">烟草专卖举报监督<em>96117</em></a></li>
+                <li><a tapmode="" onclick="call(this)">文化市场举报监督<em>9633523</em></a></li>
+                <li><a tapmode="" onclick="call(this)">劳动监察<em>12333</em></a></li>
+            </ul>
+            <h1 class="report"></h1>
+            <ul>
+                <li><a tapmode="" onclick="call(this)">电力服务热线<em>95598</em></a></li>
+                <li><a tapmode="" onclick="call(this)">中国人寿保险公司<em>95519</em></a></li>
+                <li><a tapmode="" onclick="call(this)">建设银行客服中心<em>95533</em></a></li>
+                <li><a tapmode="" onclick="call(this)">工商银行客服中心<em>95588</em></a></li>
+                <li><a tapmode="" onclick="call(this)">农业银行客服中心<em>95599</em></a></li>
+                <li><a tapmode="" onclick="call(this)">晋城火车站问询处<em>2235102</em></a></li>
+                <li><a tapmode="" onclick="call(this)">晋城市客运管理处<em>2054848</em></a></li>
+                <li><a tapmode="" onclick="call(this)">晋城市客运疏导中心<em>2037954</em></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    function call(el){
+        var ele = $api.dom(el,'em');
+        var num = $api.text(ele);
+        api.call({
+            type: 'tel_prompt',
+            number: num
+        });
+        event.preventDefault();
+    }
+</script>
+</html>

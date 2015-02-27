@@ -1,0 +1,39 @@
+#main h1{
+    height: 30px; font-size: 0;
+    background-color: #f2f2f2;
+    background-position: 10px 60%;
+    background-repeat: no-repeat;
+    -webkit-background-size: 246px 18px;
+    background-size: 246px 18px;
+}
+#main ul{
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 4px #dddcdc;
+    box-shadow: 0px 2px 4px #dddcdc;
+    margin-bottom: 3px;
+}
+#main ul li{
+    padding: 10px 10px 0;
+}
+#main ul li:last-child a{
+    border-bottom: none;
+}
+#main ul li a{
+    display: block; border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;
+    overflow: hidden;
+}
+
+#main ul li a:after{
+    content: ""; float: right; width: 8px; height: 14px;
+    background: url(../image/arr-r.png) no-repeat right center;
+    background-size: contain;
+}
+#main ul li a em{
+    color: #55abce; margin-left: 10px;
+}
+#main .alarm{
+    background-image: url(../image/alarm.png);
+}
+#main .report{
+    background-image: url(../image/report.png);
+}

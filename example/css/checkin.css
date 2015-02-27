@@ -1,0 +1,33 @@
+
+#header{position: relative;}
+#main .banner{
+    background: url(../image/checkin1.png) no-repeat center;
+    height: 130px; margin: 0 auto; padding: 20px;
+    -webkit-background-size: 90% 130px;
+    background-size: 90% 130px;
+}
+#main ul{
+    background-color: #fff; 
+}
+#main .result{
+    font-size: 20px; color: #f4a048; text-align: center; padding: 25px 0;
+}
+#main .asset{
+    font-size: 14px; padding: 20px; border: 1px solid #e6e6e6; border-radius: 6px;
+    background-color: #f2f2f2; margin: 0 10px 20px;
+}
+#main li.btn{
+    text-align: center; padding-bottom: 25px;
+}
+#main a.btn{
+    border:1px solid #4390af; border-radius: 6px; background-color: #55abce;
+    padding: 10px 0; display: block; margin: 0 10px;
+    font-size: 16px; color: #fff;
+}
+
+#main .asset span{
+    color: #55abce;
+}
+#main .how{
+    display: block; text-align: center; font-size: 12px; padding-top: 20px;
+}

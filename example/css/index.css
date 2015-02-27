@@ -1,0 +1,55 @@
+#wrap{
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-flow: column;
+           flex-flow: column;
+}
+#main{
+    -webkit-box-flex: 1; 
+    -webkit-flex: 1;
+    flex: 1;
+}
+#nav ul{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+#nav ul li{
+    -webkit-box-flex: 1; 
+    -webkit-flex: 1;
+    flex: 1;
+}
+#header .header{
+    display: none;
+}
+#header .active{
+    display: block;
+}
+#header .news .submenu, #header .activity .submenu{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    background-color: #fff; 
+}
+#header .news .submenu li, #header .activity .submenu li{
+    -webkit-box-flex: 1; 
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+#header .scan{
+	display:inline-block; position:absolute; bottom: 2px; right: 20px;
+    width: 40px; height: 40px; text-indent: -9999px;
+    background: url(../image/scan.png) no-repeat center center;
+    background-size: 24px;
+    -webkit-background-size: 24px;
+}

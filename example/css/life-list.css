@@ -1,0 +1,110 @@
+#wrap{
+    background-color: #55abce;
+}
+#header .near{
+    position: absolute; right: 1em; bottom: .6em; color: #fff;
+}
+
+#main .submenu{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    background-color: #fff;
+    -webkit-box-shadow:0px 4px 4px #dddcdc;
+    box-shadow: 0px 4px 4px #dddcdc; 
+}
+#main .submenu li, #header .submenu li{
+    -webkit-box-flex: 1; 
+    -webkit-flex: 1;
+    flex: 1;
+}
+#main .submenu li{
+    height: 40px; line-height: 40px;
+}
+#main .submenu li a{
+    display: block; text-align: center; 
+    background: url(../image/border.png) no-repeat right center;
+    -webkit-background-size: 2px 36px;
+    background-size: 2px 36px;
+}
+#main .submenu li:last-child a{
+    background: none;
+}
+#main .submenu li{
+    background: url(../image/arr-b.png) no-repeat 90% center;
+    -webkit-background-size: 9px 4px;
+    background-size: 9px 4px;
+}
+#main .submenu li.active{
+    background: url(../image/arr-t.png) no-repeat 90% center;
+    -webkit-background-size: 9px 4px;
+    background-size: 9px 4px;
+}
+#main .submenu li.active a{
+    color: #55abce;
+}
+#main .submenu a i{
+    display: inline-block; width: 16px; height: 16px;
+    -webkit-background-size: contain !important; 
+    background-size: contain !important; 
+    margin-right: .5em; vertical-align: text-bottom;
+
+}
+#main .submenu .city i{
+    background: url(../image/local.png) no-repeat left center;
+}
+#main .submenu .type i{
+    background: url(../image/menu.png) no-repeat left center;
+}
+#main .submenu .active .city i{
+    background: url(../image/local-l.png) no-repeat left center;
+}
+#main .submenu .active .type i{
+    background: url(../image/menu-l.png) no-repeat left center;
+}
+
+#main .list{
+    padding: 14px 0px 20px;
+}
+#main .list li{
+    position: relative; overflow: hidden; 
+    border-bottom: 1px solid #d9d9d9;
+}
+#main .list li a{
+    display: block; padding: 10px;
+}
+#main .list li a.active{
+	background-color: #d9e4e9;
+}
+#main .list img{
+    float: left; width: 80px; height: 60px; border-radius: 4px;
+}
+#main .list h3, #main .list .info{
+    margin-left: 90px; 
+}
+#main .list h3{
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    width: 70%; margin-bottom: 20px; position: relative;
+}
+#main .list h3:after{
+    content: ""; display: inline-block; width: 14px; height: 17px;
+    background: url(../image/call.png) no-repeat; margin-left: 10px;
+    vertical-align: middle;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+#main .list .info, #main .list .info em, #main .list .info span{
+    color: #999; font-size: 14px; 
+}
+#main .list .info span{
+    white-space: nowrap; overflow: hidden;
+}
+#main .list .info span:nth-child(2){
+    margin-left: 10px;
+}
+#main .list .info em{
+    float: right; margin-right: 6px;
+}

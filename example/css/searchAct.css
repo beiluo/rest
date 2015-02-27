@@ -1,0 +1,26 @@
+html,body{
+    background-color: transparent !important;
+}
+#main{
+    background-color: #f2f2f2;
+    max-height: 60%; overflow: auto;
+    -webkit-box-shadow: inset 0px 4px 4px #dddcdc;
+    box-shadow: inset 0px 4px 4px #dddcdc;
+}
+#main ul li{
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+}
+#main ul li a{
+    border-top: 1px solid #fff;
+    color: #999; display: block; padding: 10px 40px;
+}
+#main ul li a.active{
+    border-top: 1px solid #ccc;
+    background-color: #dee7ea; 
+    -webkit-box-shadow: inset 0px 2px 6px #ccc;
+    box-shadow: inset 0px 2px 6px #ccc;
+}
+#main ul li a em{
+    color: #55abce; float: right;
+}

@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/news-text.css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+        
+        	<script id="news-template" type="text/x-dot-template">
+                <h1>{{=it.title}}</h1>
+                <label>
+	                {{? it.from }}
+	                	{{=it.from}}
+	                {{?}}
+	                <em>{{=it.date}}</em>
+                </label>
+                <div id="summary">
+                	{{=it.summary}}
+            	</div>
+            	{{? it.pics }}
+            		<a class="video" onclick="openVideo(this);" tapmode="active" data-url="{{=it.source}}">
+            			<img src="{{=it.pics}}" />
+            			<i class="play"></i>
+            		</a>
+            	{{?}}
+            	<div>
+            		{{=it.content}}
+            	</div>
+            	
+            	<a id="fav" class="btn" tapmode="active" news-id="{{=it.id}}" >收藏</a>
+            	
+            </script>
+        	
+        	<div id="content"></div>
+            
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script src="../script/zepto.js"></script>
+<script type="text/javascript" src="../script/news-videoCon.js"></script>
+</html>

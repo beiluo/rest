@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/news-pic.css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+        	<script id="banner-template" type="text/x-dot-template">
+        		<div class='swipe-wrap'>
+	    			{{ for(var i=0; i < it.length; i++) { }}
+	                <div class="pic" tapmode="" onclick="closeWin()" style="background-image:url({{=it[i].url}})">
+	                  <label>{{=it[i].content}}</label>
+	                </div>
+	                {{ } }}
+                </div>
+	            <div id="pointer">
+	                <em>1</em>/{{=it.length}}
+	            </div>
+	            <a id="hide" tapmode="" onclick="toggleTxt(this)">隐藏文字</a>
+            </script>
+            
+            <div id='slide' class='swipe'>
+            	
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script src='../script/swipe.js'></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/news-pic.js"></script>
+</html>

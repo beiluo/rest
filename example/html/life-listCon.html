@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/life-list.css" />
+</head>
+<body>
+    <div id="main">
+    
+    	<script id="act-template" type="text/x-dot-template">
+	        {{ for(var i=0, len=it.length; i < len; i++) {}}
+	          <li>
+	            <a tapmode="active" data-id="{{=it[i].id}}" onclick="openRest(this);">
+		            <img src="{{=it[i].img.url}}" />
+		            <h3>{{=it[i].name}}</h3>
+		            <div class="info clearfix">
+		                <span>{{=it[i].city.name}}</span>
+                        <span>{{=it[i].type.name}}</span>
+                        <!--<em>120km</em>-->
+		            </div>
+	            </a>
+	          </li>
+	        {{ } }}
+	    </script>
+    	
+        <ul class="list" id="lifeList">
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script> 
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/life-listCon.js"></script>
+</html>

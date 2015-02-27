@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>关于我们</title>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+<link rel="stylesheet" type="text/css" href="../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<style>
+    body{
+        background-color: #fff;
+    }
+    #logo{
+        width: 150px; height: 150px; margin: 32px auto 32px; display: block;
+    }
+    #web{
+        text-align: center; color:#87b1d1; 
+    }
+    #intro{
+        color: #898989; letter-spacing: 2px; line-height: 1.5;
+        padding: 40px 25px;
+    }
+    #read{
+        text-align: center;
+    }
+    #read .btn{
+        display: inline-block; width: 256px; height:50px;
+        background: #7dc2ef url(../image/audio.png) no-repeat center; 
+        background-size: 35px 28px;
+        border: 1px solid #7dc2ef;
+        border-radius: 6px;
+    }
+    .hover{
+        background-color: #64a7d3 !important;
+    }
+    dl{
+        text-align: center; margin: 0;
+    }
+    dl dt{
+        color:#808080; margin-bottom: 56px; margin-top: 30px;
+    }
+    dl dd span{
+        margin-bottom: 50px; margin-top: 10px; color:#5f97c2;
+    }
+    dl dd img{
+        display: block; width: 160px; height: 160px; margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+    <img id="logo" src="../image/icon.png" />
+    <div id="web">
+        www.apicloud.com
+    </div>
+    <div id="intro">
+APICloud 是中国首个“云端一体”的移动应用云服务提供商。APICloud引领“云端一体”的理念，重新定义了移动应用开发。我们为开发者从“云”和“端”两个方向提供API，简化移动应用开发技术，让移动应用的开发周期从一个月缩短到7天。我们的服务由“云API”和“端API”两部分组成，可以帮助开发者快速实现移动应用的开发、测试、发布、管理和运营的全生命周期管理。
+
+    </div>
+    <div id="read">
+        <a class="btn" tapmode="hover" onclick="readme();"></a>
+    </div>
+    <dl>
+        <dt>
+            ↓扫描下方二维码下载应用
+        </dt>
+        <dd>
+            <img src="../image/down.png" />
+            <span>立即下载</span>
+
+        </dd>
+    </dl>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script>
+function readme(){
+    var obj = api.require('speechRecognizer');
+    var txt = $api.byId('intro').innerHTML;
+    txt = '语音识别模块展示：'+ txt;
+    obj.read({
+        readStr: txt
+    });
+}
+
+apiready = function() {
+
+}
+
+</script>
+</html>

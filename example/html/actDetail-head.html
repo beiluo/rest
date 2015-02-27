@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/actDetail.css" />
+    <style type="text/css">
+        html,body{
+          background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+            <div id="header">
+              <a class="back-icon" tapmode="" onclick="api.closeWin()"></a>
+              <h1>活动详情</h1>
+              <a class="share" tapmode="" onclick="share()">分享</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	function share(){
+        
+        var weiXin = api.require('weiXin');
+		weiXin.registerApp(function(ret,err){
+		        if (ret.status) {
+//		        	alert(ret.status);
+		            
+		            weiXin.sendRequest({
+		            	scene: 'timeline',
+					    contentType:'text',
+					    title:'APICloud',
+					    description:'APICloud分享了个有趣的活动，看看呐！',
+					    thumbUrl:'widget://icon/icon150x150.png',
+					    contentUrl: ''
+					},function(ret,err){
+					    if(ret.status){
+					        // api.alert({title: '发表微信',msg: '发表成功', buttons: ['确定']});
+					    } else{
+					        api.alert({title: '发表失败',msg: err.msg,buttons: ['确定']});
+					    };
+					});
+		            
+		        } else{
+//		            api.alert({msg:err.msg});
+		        }
+		    });
+
+	}
+	
+    apiready = function(){
+        var header = $api.byId('header');
+        $api.fixIos7Bar(header);
+    }
+</script>
+</html>
