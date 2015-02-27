@@ -9,6 +9,7 @@ var client = new Resource("appId", "appKey","请求地址，可省略");
 ####参数介绍
 
 _id：对应数据的id
+
 _relation：对应Relation字段的名称
 
 ```js
