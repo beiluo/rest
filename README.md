@@ -74,13 +74,17 @@ User.query({
 ```
 ## User表特殊操作
 ```js
+var token;
 //登录
 User.login({username: username, password: password}, function (ret,err) {
   console.log("user.login:"+JSON.stringify(ret))
   console.log("user.login:"+JSON.stringify(err))
+  token=ret.id;
 });
+
 //登出
-User.logout({token: token}, function (ret,err) {
+client.setHeaders("authorization",token);
+User.logout(function (ret,err) {
 	console.log("user.logout:"+JSON.stringify(ret))
 });
 //发送验证邮件

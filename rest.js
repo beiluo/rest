@@ -33,13 +33,20 @@ function Resource(appId, appKey, baseurl) {
         'query': {method: 'GET',params: ["filter"]},
         'delete': {method: 'DELETE',params: ["_id", "_relation"]}, //_relationid 后续支持
         'login': {method: "POST",params: ["username", "passwordd"]},
-        'logout': {method: "POST",params: ["token"]},
+        'logout': {method: "POST"},
         'count': {method: "GET",params: ["_id", "_relation","filter"]},
         'exists': {method: "GET",params: ["_id"]},
         'findOne': {method: 'GET',params: ["filter"]},
         'verify': {method: "POST",params: ["email", "language", "username"],alias: "verifyEmail"},
         'reset': {method: "POST",params: ["id","email", "language", "username"],alias: "resetRequest"}
     };
+    this.headers={};
+    this.setHeaders("X-APICloud-AppId",this.appId);
+    this.setHeaders("X-APICloud-AppKey",this.appCode);
+    this.setHeaders("Content-Type","application/json;");
+}
+Resource.prototype.setHeaders=function(key,value){
+    this.headers[key]=value;
 }
 Resource.prototype.upload = function (modelName,isFilter, filepath, params, callback) {
     if (typeof params == "function") {
@@ -50,13 +57,9 @@ Resource.prototype.upload = function (modelName,isFilter, filepath, params, call
     var isPut=(!params["_relation"])&&params["_id"];
     var fileUrl = this.baseurl + url + ( isPut ? ("/" + params["_id"]) : "");
     var filename = filepath.substr(filepath.lastIndexOf("/") + 1, filepath.length);
-    api.ajax({
+    var ajaxConfig={
         url: fileUrl,
         method: isPut ? "PUT" : "POST",
-        headers: {
-            "X-APICloud-AppId": this.appId,
-            "X-APICloud-AppKey": this.appCode
-        },
         data: {
             values: {
                 filename: filename
@@ -65,7 +68,12 @@ Resource.prototype.upload = function (modelName,isFilter, filepath, params, call
                 file: filepath
             }
         }
-    }, function (ret, err) {
+    }
+    ajaxConfig["headers"] = {};
+    for(var header in this.headers){
+        ajaxConfig["headers"][header]=this.headers[header];
+    }
+    api.ajax(ajaxConfig, function (ret, err) {
         if (ret && ret.id && !err) {
             var newobj = {};
             if (isFilter) {
@@ -119,7 +127,7 @@ Resource.prototype.Factory = function (modelName) {
                 default:
                     throw new Error("参数最多为3个");
             }
-            if (hasBody) {
+            if (hasBody&&name != "logout") {
                 var fileCount = 0;
                 Object.keys(data).forEach(function (key) {
                     var item = data[key];
@@ -153,18 +161,18 @@ Resource.prototype.Factory = function (modelName) {
             function next() {
                 var httpConfig = {};
                 httpConfig["headers"] = {};
-                httpConfig["headers"]["X-APICloud-AppId"] = self.appId;
-                httpConfig["headers"]["X-APICloud-AppKey"] = self.appCode;
-                httpConfig["headers"]["Content-Type"] = "application/json;";
-                if (name === "logout") {
-                    httpConfig["headers"]["authorization"] = data["token"];
-                } else {
-                    if (hasBody) {
-                        httpConfig.data = {
-                            body: JSON.stringify(data)
-                        };
-                    }
+                for(var header in self.headers){
+                    httpConfig["headers"][header]=self.headers[header];
                 }
+                if (name === "logout"&&!httpConfig["headers"]["authorization"]) {
+                     return callback({status:0,msg:"未设置authorization参数,无法注销!"}, null);
+                }
+                if (hasBody) {
+                    httpConfig.data = {
+                        body: JSON.stringify(data)
+                    };
+                }
+                
                 if (params && (name == "save") && params["_id"] && (!params["_relation"]) && (!params["_relationid"])) {
                     action.method = "PUT";
                 }

@@ -35,7 +35,7 @@ function loginOut() {
         modal: false
     });
     var User=factory("user");
-    User.logout({token:$api.getStorage('token')}, function (ret, err) {
+    User.logout(function (ret, err) {
         if (ret) {
             $api.clearStorage();
             api.execScript({
