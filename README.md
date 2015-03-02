@@ -1,3 +1,4 @@
+#该项目已经转向[mcm-js-sdk](https://github.com/APICloud-com/mcm-js-sdk)
 
 ##概述
 
